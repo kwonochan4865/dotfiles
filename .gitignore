@@ -1,0 +1,27 @@
+# ── Git ───────────────────────────────────────────
+git/.gitconfig.local
+
+# ── Claude Code ───────────────────────────────────
+claude/.config/claude/.credentials.json
+claude/.config/claude/history.jsonl
+claude/.config/claude/mcp-needs-auth-cache.json
+claude/.config/claude/sessions/
+claude/.config/claude/session-env/
+claude/.config/claude/backups/
+claude/.config/claude/cache/
+claude/.config/claude/projects/
+claude/.config/claude/file-history/
+claude/.config/claude/shell-snapshots/
+claude/.config/claude/CLAUDE_LOG/
+
+# ── Vim ───────────────────────────────────────────
+vim/.vim/plugged/
+vim/.vim/undodir/
+vim/.vim/.netrwhist
+
+# ── Fcitx5 ────────────────────────────────────────
+fcitx5/.config/fcitx5/conf/cached_layouts
+
+# ── 공통 ──────────────────────────────────────────
+.DS_Store
+*.log

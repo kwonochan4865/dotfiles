@@ -1,0 +1,159 @@
+# ╭─────────────────────────────────────────╮
+# │  Starship 프롬프트 설정 (Pastel Powerline)  │
+# ╰─────────────────────────────────────────╯
+
+# 최상위 설정
+palette = "pastel"
+add_newline = true
+right_format = ""
+
+# 두 줄 프롬프트: 위에 정보, 아래에 입력
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$golang\
+$docker_context\
+$cmd_duration\
+$fill\
+$time\
+$line_break\
+$character"""
+
+# 팔레트 정의
+[palettes.pastel]
+sky      = "#89b4fa"
+lavender = "#b4befe"
+mauve    = "#cba6f7"
+pink     = "#f38ba8"
+peach    = "#fab387"
+yellow   = "#f9e2af"
+green    = "#a6e3a1"
+teal     = "#94e2d5"
+sapphire = "#74c7ec"
+overlay  = "#313244"
+surface  = "#1e1e2e"
+text     = "#cdd6f4"
+subtext  = "#a6adc8"
+
+# ── OS 아이콘 ──────────────────────────────
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold mauve"
+
+[os.symbols]
+Linux = " "
+Ubuntu = " "
+Pop = " "
+
+# ── 사용자@호스트 ─────────────────────────
+[username]
+show_always = false
+format = "[$user]($style) "
+style_user = "bold sky"
+style_root = "bold pink"
+
+[hostname]
+ssh_only = true
+format = "[@$hostname]($style) "
+style = "bold sapphire"
+
+# ── 디렉토리 ──────────────────────────────
+[directory]
+style = "bold sky"
+read_only_style = "bold pink"
+read_only = "  "
+truncation_length = 4
+truncate_to_repo = true
+format = "[ $path]($style)[$read_only]($read_only_style) "
+
+[directory.substitutions]
+"~" = " ~"
+"~/OneDrive" = "󰁆 OneDrive"
+
+# ── Git 브랜치 ────────────────────────────
+[git_branch]
+symbol = " "
+style = "bold mauve"
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+truncation_length = 20
+truncation_symbol = "…"
+
+# ── Git 상태 ──────────────────────────────
+[git_status]
+style = "bold pink"
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = " "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "󰃻 ⇡${ahead_count}⇣${behind_count}"
+untracked = "? "
+stashed = " "
+modified = " "
+staged = " "
+renamed = "󰁕 "
+deleted = " "
+
+# ── 언어 런타임 ───────────────────────────
+[python]
+symbol = " "
+style = "bold yellow"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", ".python-version", "Pipfile"]
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol($version )]($style)"
+detect_files = ["package.json", ".nvmrc"]
+
+[rust]
+symbol = " "
+style = "bold peach"
+format = "[$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+style = "bold teal"
+format = "[$symbol($version )]($style)"
+
+# ── Docker ────────────────────────────────
+[docker_context]
+symbol = " "
+style = "bold sapphire"
+format = "[$symbol$context]($style) "
+only_with_files = true
+
+# ── 명령 실행 시간 ──────────────────────
+[cmd_duration]
+min_time = 2_000
+format = "[ $duration]($style) "
+style = "bold yellow"
+show_notifications = false
+
+# ── 오른쪽 정렬용 채우기 ─────────────────
+[fill]
+symbol = " "
+style = "overlay"
+
+# ── 시간 ──────────────────────────────────
+[time]
+disabled = false
+format = "[$time]($style) "
+style = "bold subtext"
+time_format = "%H:%M"
+use_12hr = false
+
+# ── 프롬프트 문자 ─────────────────────────
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold pink)"
+vimcmd_symbol = "[❮](bold mauve)"
