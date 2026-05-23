@@ -42,3 +42,26 @@ alias claude='rlwrap claude'
 # 가상환경 활성화 시 프롬프트 변경 허용
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 eval "$(starship init zsh)"
+
+# 기본 에디터 (yazi, git commit 등에서 사용)
+export EDITOR=vim
+export VISUAL=vim
+
+# yazi: 종료 시 현재 디렉토리로 자동 이동 (ya 함수)
+function ya() {
+  local tmp cwd
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  cwd="$(cat -- "$tmp")"
+  [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ochan/.local/bin:$PATH"

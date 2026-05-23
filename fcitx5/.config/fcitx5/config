@@ -13,7 +13,6 @@ EnumerateSkipFirst=False
 3=ISO_Level3_Shift
 
 [Hotkey/AltTriggerKeys]
-0=Shift_L
 
 [Hotkey/EnumerateForwardKeys]
 0=Control+space

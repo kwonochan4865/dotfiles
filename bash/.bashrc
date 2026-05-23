@@ -120,3 +120,7 @@ fi
 #export XMODIFIERS=@im=ibus
 #export QT_IM_MODULE=Ibus
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ochan/.local/bin:$PATH"
